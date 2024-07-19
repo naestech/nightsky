@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive ASCII Art Galaxy</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    pre {
+      line-height: 1.2;
+      white-space: pre-wrap; /* Preserve spaces and line breaks */
+      display: block; /* To center the content */
+      margin: 0; /* Remove default margin */
+    }
+    .star {
+      color: white;
+      animation: twinkle 1s infinite;
+      display: inline; /* Ensure stars are inline */
+    }
+    .moon-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .moon {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      text-align: left; /* Align text to the left for proper formatting */
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .moon:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <pre>
+    <span class="star">*</span>   .     .      o     .      <span class="star">*</span>
+      .       .   <span class="star">*</span>    o .   .
+            
+      <div class="moon-container">
+        <span class="moon">
+           _..._     
+         .:::::::.    
+        :::::::::::   
+        ::::::::::: 
+        `:::::::::'  
+          `':::'' 
+        </span>
+      </div>
+
+        .       .   <span class="star">*</span>    o .   .
+      <span class="star">*</span>   .     .      o     .      <span class="star">*</span>
+  </pre>
+
+  <script>
+    // Replace stars with twinkling stars
+    document.querySelectorAll('pre').forEach(pre => {
+      pre.innerHTML = pre.innerHTML.replace(/\*/g, '<span class="star">*</span>');
+    });
+
+    const moonElement = document.querySelector('.moon');
+    const moonPhases = [
+      // NEW MOON
+      `
+         _..._     
+       .:::::::.    
+      :::::::::::   
+      ::::::::::: 
+      \`:::::::::'  
+        \`':::'' 
+      `,
+      // WAXING CRESCENT
+      `
+         _..._     
+       .::::. \`.    
+      :::::::.  :    
+      ::::::::  :  
+      \`::::::' .'  
+        \`'::'-' 
+      `,
+      // FIRST QUARTER
+      `
+         _..._     
+       .::::  \`.    
+      ::::::    :  
+      ::::::    :  
+      \`:::::   .'  
+        \`'::.-' 
+      `,
+      // WAXING GIBBOUS
+      `
+         _..._     
+       .::'   \`.    
+      :::       :  
+      :::       :  
+      \`::.     .'  
+        \`':..-'    
+      `,
+      // FULL MOON
+      `
+         _..._     
+       .'     \`.    
+      :         :  
+      :         :  
+      \`.       .'  
+        \`-...-'  
+      `,
+      // WANING GIBBOUS
+      `
+         _..._     
+       .'   \`::.    
+      :       :::  
+      :       :::  
+      \`.     .::'  
+        \`-..:'' 
+      `,
+      // LAST QUARTER
+      `
+         _..._     
+       .'  ::::.    
+      :    ::::::  
+      :    ::::::  
+      \`.   :::::'  
+        \`-.::''   
+      `,
+      // WANING CRESCENT
+      `
+         _..._     
+       .' .::::.    
+      :  ::::::::  
+      :  ::::::::  
+      \`. '::::::'  
+      jgs   \`-.::'' 
+      `
+    ];
+
+    function getCurrentMoonPhase() {
+      const now = new Date();
+      const synodicMonth = 29.53058867; // average length of a synodic month in days
+      const newMoon2015 = new Date('2015-01-20T14:14:00Z'); // known new moon date
+      const diff = now - newMoon2015;
+      const daysSinceNewMoon = diff / (1000 * 60 * 60 * 24);
+      return Math.floor((daysSinceNewMoon % synodicMonth) / (synodicMonth / moonPhases.length));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      moonElement.innerHTML = moonPhases[0]; // Default to New Moon
+
+      moonElement.addEventListener('mouseover', () => {
+        const currentPhase = getCurrentMoonPhase();
+        moonElement.innerHTML = moonPhases[currentPhase];
+      });
+
+      moonElement.addEventListener('mouseout', () => {
+        moonElement.innerHTML = moonPhases[0]; // Reset to New Moon
+      });
+    });
+  </script>
+</body>
+</html>
