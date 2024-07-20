@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive ASCII Art Galaxy</title>
+  <title>galascii</title>
   <style>
     body {
       background-color: black;
@@ -20,14 +20,14 @@
     }
     pre {
       line-height: 1.2;
-      white-space: pre-wrap; /* Preserve spaces and line breaks */
-      display: block; /* To center the content */
-      margin: 0; /* Remove default margin */
+      white-space: pre-wrap; 
+      display: block; 
+      margin: 0;
     }
     .star {
       color: white;
       animation: twinkle 1s infinite;
-      display: inline; /* Ensure stars are inline */
+      display: inline;
     }
     .moon-container {
       display: flex;
@@ -38,7 +38,7 @@
       display: inline-block;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
-      text-align: left; /* Align text to the left for proper formatting */
+      text-align: left;
     }
     @keyframes twinkle {
       0%, 100% { opacity: 1; }
@@ -70,7 +70,6 @@
   </pre>
 
   <script>
-    // Replace stars with twinkling stars
     document.querySelectorAll('pre').forEach(pre => {
       pre.innerHTML = pre.innerHTML.replace(/\*/g, '<span class="star">*</span>');
     });
