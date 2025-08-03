@@ -3,51 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>galascii</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: monospace;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    pre {
-      line-height: 1.2;
-      white-space: pre-wrap; 
-      display: block; 
-      margin: 0;
-    }
-    .star {
-      color: white;
-      animation: twinkle 1s infinite;
-      display: inline;
-    }
-    .moon-container {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-    .moon {
-      display: inline-block;
-      cursor: pointer;
-      transition: transform 0.3s ease-in-out;
-      text-align: left;
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .moon:hover {
-      transform: scale(1.2);
-    }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%236A6A6A'>☾</text></svg>">
+  <title>h.t.m.lun</title>
 </head>
 <body>
   <pre>
@@ -172,5 +129,50 @@
       });
     });
   </script>
+
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    pre {
+      line-height: 1.2;
+      white-space: pre-wrap; 
+      display: block; 
+      margin: 0;
+    }
+    .star {
+      color: white;
+      animation: twinkle 1s infinite;
+      display: inline;
+    }
+    .moon-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .moon {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      text-align: left;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .moon:hover {
+      transform: scale(1.2);
+    }
+  </style>
 </body>
 </html>
