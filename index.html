@@ -36,11 +36,11 @@
       // NEW MOON
       `
          _..._     
-       .:::::::.    
-      :::::::::::   
-      ::::::::::: 
-      \`:::::::::'  
-        \`':::'' 
+       .'     \`.    
+      :         :  
+      :         :  
+      \`.       .'  
+        \`-...-'  
       `,
       // WAXING CRESCENT
       `
@@ -72,11 +72,11 @@
       // FULL MOON
       `
          _..._     
-       .'     \`.    
-      :         :  
-      :         :  
-      \`.       .'  
-        \`-...-'  
+       .:::::::.    
+      :::::::::::   
+      ::::::::::: 
+      \`:::::::::'  
+        \`':::'' 
       `,
       // WANING GIBBOUS
       `
@@ -130,6 +130,18 @@
     });
   </script>
 
+  <div id="html-energy-webring">
+    <script
+    type="text/javascript"
+      src="https://www.gabriel-export.earth/html-energy-webring/onionring/variables.js"
+    ></script>
+    <script
+    type="text/javascript"
+    src="https://www.gabriel-export.earth/html-energy-webring/onionring/widget.js"
+    ></script>
+    <!-- 🔺 Order matters here! 🔺 -->
+    </div>
+
   <style>
     body {
       background-color: black;
@@ -172,6 +184,34 @@
     }
     .moon:hover {
       transform: scale(1.2);
+    }
+    
+    /* webring styles */
+    #html-energy-webring {
+      margin-top: 20px;
+      font-family: monospace;
+      font-size: 10px;
+      text-transform: lowercase;
+    }
+    
+    #html-energy-webring a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    #html-energy-webring a:hover {
+      color: #ccc;
+    }
+    
+    .webring-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 5px 0;
+    }
+    
+    .webring-title {
+      margin-bottom: 10px;
     }
   </style>
 </body>
